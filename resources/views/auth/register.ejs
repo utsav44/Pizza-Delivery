@@ -1,0 +1,241 @@
+<section class="login flex justify-center pt-24">
+  <div class="w-full max-w-xs">
+    <% if(role==="customer"){ %>
+      <div id="customerRegister" >
+        <form
+          action="/userregister"
+          method="POST"
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+          <% if(messages.error){ %>
+          <span class="text-red-500 text-small"><%= messages.error %></span>
+          <% } %>
+          <input type="hidden" id="customerrole" name="role" value="customer">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="username"
+            >
+              Name
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              name="name"
+              value="<%= messages.name %>"
+              placeholder="Enter your Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="text"
+              name="email"
+              value="<%= messages.email %>"
+              placeholder="Enter your Email"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="phone"
+            >
+              Phone
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="phone"
+              type="text"
+              name="phone"
+              value="<%= number %>"
+              readonly
+              placeholder="Your Mobile Number"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              name="password"
+              id="password"
+              type="password"
+              placeholder="******************"
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Register
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm"
+              href="/login"
+            >
+              Already have account?
+            </a>
+          </div>
+        </form>
+      </div>
+    <% } else { %>
+      <div id="adminRegister">
+        <form
+          action="/adminregister"
+          method="POST"
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+          <% if(messages.error){ %>
+          <span class="text-red-500 text-small"><%= messages.error %></span>
+          <% } %>
+          <input type="hidden" id="adminrole" name="role" value="admin">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="resturentname"
+            >
+              Resturent Name
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="resturentname"
+              type="text"
+              name="resturentname"
+              value="<%= messages.name %>"
+              placeholder="Enter Resturent Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="resturentaddress"
+            >
+              Resturent Address
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="resturentaddress"
+              type="text"
+              name="resturentaddress"
+              value="<%= messages.address %>"
+              placeholder="Enter Resturent Address"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="resturentnumber"
+            >
+              Resturent Contact Number
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="resturentnumber"
+              type="text"
+              name="resturentnumber"
+              value="<%= messages.resturentnumber %>"
+              placeholder="Enter Resturent Number"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="ownernumber"
+            >
+              Resturent Owner Number
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="ownernumber"
+              type="text"
+              name="ownernumber"
+              value="<%= number %>"
+              readonly
+              placeholder="Your Mobile Number"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="ownername"
+            >
+              Resturent Owner Name
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="ownername"
+              type="text"
+              name="ownername"
+              value="<%= messages.ownername %>"
+              placeholder="Enter Resturent Name"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="owneremail"
+            >
+              Resturent Owner Email
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="owneremail"
+              type="text"
+              name="owneremail"
+              value="<%= messages.email %>"
+              placeholder="Enter Resturent Owner Email"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="adminpassword"
+            >
+              Password
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              name="adminpassword"
+              id="adminpassword"
+              type="password"
+              placeholder="******************"
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Register
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm"
+              href="/login"
+            >
+              Already have account?
+            </a>
+          </div>
+        </form>
+      </div>
+    <% } %>
+    
+   
+
+    <p class="text-center text-gray-500 text-xs">
+      &copy;2020 Your Meal. All rights reserved.
+    </p>
+  </div>
+</section>

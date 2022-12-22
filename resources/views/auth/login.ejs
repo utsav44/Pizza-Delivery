@@ -1,0 +1,229 @@
+<section class="login flex justify-center pt-24">
+  <div class="w-full max-w-xs">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+        Role
+      </label>
+      <div class="relative ml-auto mb-4">
+        <select
+          id="loginRole"
+          class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="customer">Customer</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div
+          class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+        >
+          <svg
+            class="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div id="customerLogin" >
+      <form
+      action="/userlogin"
+      method="POST"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <% if(messages.error){ %>
+      <span class="text-red-500 text-small"><%= messages.error %></span>
+      <% } %>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="userusername"
+        >
+          Email
+        </label>
+        <input
+          class="
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-gray-700
+            leading-tight
+            focus:outline-none focus:shadow-outline
+          "
+          id="userusername"
+          type="text"
+          name="email"
+          placeholder="Enter your Email"
+          value="<%= messages.email %>"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="userpassword"
+        >
+          Password
+        </label>
+        <input
+          class="
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-gray-700
+            mb-3
+            leading-tight
+            focus:outline-none focus:shadow-outline
+          "
+          id="userpassword"
+          type="password"
+          name="password"
+          placeholder="******************"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="
+            btn-primary
+            rounded-full
+            text-white
+            font-bold
+            py-2
+            px-4
+            rounded
+            focus:outline-none focus:shadow-outline
+          "
+          type="submit"
+        >
+          Log In
+        </button>
+        <a
+          class="inline-block align-baseline font-bold text-sm"
+          href="/getotp"
+        >
+          Don't have account?
+        </a>
+        
+      </div>
+      <div class="flex items-center justify-end">
+        <a
+          class="inline-block align-baseline font-bold text-sm"
+          href="updatePassGetOTP"
+        >
+          Forget Password?
+        </a>
+      </div>
+    </form>
+    </div>
+
+    <div id="adminLogin" class="hide">
+      <form
+      action="/adminlogin"
+      method="POST"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <% if(messages.error){ %>
+      <span class="text-red-500 text-small"><%= messages.error %></span>
+      <% } %>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="adminusername"
+        >
+          Email
+        </label>
+        <input
+          class="
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-gray-700
+            leading-tight
+            focus:outline-none focus:shadow-outline
+          "
+          id="adminusername"
+          type="text"
+          name="email"
+          placeholder="Enter your Email"
+          value="<%= messages.email %>"
+        />
+      </div>
+      <div class="mb-6">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="adminpassword"
+        >
+          Password
+        </label>
+        <input
+          class="
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-gray-700
+            mb-3
+            leading-tight
+            focus:outline-none focus:shadow-outline
+          "
+          id="adminpassword"
+          type="password"
+          name="password"
+          placeholder="******************"
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="
+            btn-primary
+            rounded-full
+            text-white
+            font-bold
+            py-2
+            px-4
+            rounded
+            focus:outline-none focus:shadow-outline
+          "
+          type="submit"
+        >
+          Log In
+        </button>
+        <a
+          class="inline-block align-baseline font-bold text-sm"
+          href="/getotp"
+        >
+          Don't have account?
+        </a>
+      </div>
+      <div class="flex items-center justify-end">
+        <a
+          class="inline-block align-baseline font-bold text-sm"
+          href="/updatePassGetOTP"
+        >
+          Forget Password?
+        </a>
+      </div>
+    </form>
+
+    </div>
+    <p class="text-center text-gray-500 text-xs">
+      &copy;2020 Your Meal. All rights reserved.
+    </p>
+  </div>
+</section>

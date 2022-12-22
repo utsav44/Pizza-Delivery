@@ -1,0 +1,50 @@
+<section class="login flex justify-center pt-24">
+    <div class="w-full max-w-xs">
+      <div>
+        <% if(type==="register"){ %>
+        <form
+          action="/validateOTP"
+          method="POST"
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+        <% } else { %>
+          <form
+          action="/updatePassValidateOTP"
+          method="POST"
+          class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+        <% } %>
+          <% if(error){ %>
+          <span class="text-red-500 text-small"><%= error %></span>
+          <% } %>
+          <input type="hidden" id="numberForOTP" name="numberForOTP" value="<%=number%>" />
+          <input type="hidden" id="role" name="role" value="<%=role%>" />
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="OTP"
+            >
+              OTP sent to <%=number%>
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="OTP"
+              type="text"
+              name="OTP"
+              placeholder="Enter OTP"
+            />
+          </div>
+          <div class="flex items-center justify-center">
+            <button
+              class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Submit
+            </button>
+        </form>
+      </div>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2020 Your Meal. All rights reserved.
+      </p>
+    </div>
+  </section>
